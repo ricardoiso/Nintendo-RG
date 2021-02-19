@@ -37,13 +37,13 @@ public class almacenB extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        while(this.capacidad <45) {
+        while(this.capacidad < 45) {
             try {
-                if (pb1.e == true && capacidad <45) {
+                if (pb1.e == true && capacidad < 45) {
                     b.extraer();
                     capacidad += 1;
                 }
-                if (pb2.e == true && capacidad <45) {
+                if (pb2.e == true && capacidad < 45) {
                     b2.extraer();
                     capacidad += 1;
                 }
