@@ -21,11 +21,6 @@ public class Nintendo_RG {
         
         Control program = new Control(); 
         
-        program.start();
-        
-        
-        
-        
-
+        program.iniciar();
     }
 }

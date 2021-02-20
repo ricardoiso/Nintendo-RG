@@ -8,32 +8,55 @@ package Main;
 import java.util.Calendar;
 import java.util.Date;
 
+import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author this_serra
  */
 public class Control {
-    
-    public static volatile int cantidadB = 1;
-    public static volatile int cantidadP = 1;
-    public static volatile int cantidadJ = 1;
-    public static volatile int cantidadSD = 1;
-    
-    public void start() {
+
+    private Jefe jefe;
+    private Gerente gerente;
+    private Archivo archivo;
+
+    ArrayList<Productor> Productores = new ArrayList<Productor>();
+    ArrayList<Semaphore> mutexProductores = new ArrayList<Semaphore>();
+
+    // Control Constructor:
+    public Control() throws InterruptedException {
+        this.archivo = new Archivo();
+        this.jefe = new Jefe();
+        this.gerente = new Gerente(this.jefe);
+
+    }
+
+    // Metodo principal que permite correr el programa
+    public void iniciar() {
+
+        // this.jefe.start();
+        // this.gerente.start();
+                
         
+        
+        
+        // ------------------------
         Time tiempo = new Time();
+
         Buffer b1 = new Buffer(2);
         Buffer b2 = new Buffer(2);
-        productoresB B1 = new productoresB("Empresa B1 ", b1, 1000, true);
-        productoresB B2 = new productoresB("Empresa B2 ", b2, 1000, true);
-        almacenB AB = new almacenB(b1,b2,45, B1, B2);
-        B1.start();
-        B2.start();
+
+        Productor primer_productor = new Productor("A ", b1, 1000, true);
+        Productor segundo_productor = new Productor("B ", b2, 1000, true);
+        Almacen AB = new Almacen(primer_productor.getBuffer(), segundo_productor.getBuffer(), 45, primer_productor, segundo_productor);
+
+        primer_productor.start();
+        segundo_productor.start();
         AB.start();
-        
+
         tiempo.setTime();
-        
-        
     }
-    
+
 }

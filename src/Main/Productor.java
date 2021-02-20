@@ -5,7 +5,6 @@
  */
 package Main;
 
-import Main.Nintendo_RG;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -14,19 +13,23 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author gabri
+ * @author gabri, this_serra
  */
-public class productoresB extends Thread {
-
-    String nombre;
+public class Productor extends Thread {
+    
+    private String nombre, tipo;
     private Random r = new Random();
-    private Buffer b;
+    
+    private int cantidad_buffer;
+    private Buffer buffer;
     private int size;
     public boolean e;
-
-    public productoresB(String nombre, Buffer b, int size, boolean e) {
+    
+   
+    
+    public Productor (String nombre, Buffer buffer, int size, boolean e) {
         this.nombre = nombre;
-        this.b = b;
+        this.buffer = buffer;
         this.size = size;
         this.e = e;
     }
@@ -47,15 +50,17 @@ public class productoresB extends Thread {
             }
 
         }*/
+    
     public void run() {
         Calendar rightNow1 = Calendar.getInstance();
         Date hour1 = rightNow1.getTime();
-        //if ((hour1.getSeconds() % 5) == 0) {
+        //if ((hour1.getSeconds() % 5) == 0) {        
+        
         if (this.e == true) {
             for (int i = 0; i < size; i++) {
                 try {
                     int aux = r.nextInt(10);
-                    b.poner(aux);
+                    buffer.poner(aux);
                     System.out.println("El productor de botones " + this.nombre + "colocó el boton: " + aux + " en el almacen");
                     try {
                         Thread.sleep(1000);
@@ -63,9 +68,70 @@ public class productoresB extends Thread {
                         e.printStackTrace();
                     }
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(productoresB.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
     }
+    
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Random getR() {
+        return r;
+    }
+
+    public void setR(Random r) {
+        this.r = r;
+    }
+
+    public int getCantidad_buffer() {
+        return cantidad_buffer;
+    }
+
+    public void setCantidad_buffer(int cantidad_buffer) {
+        this.cantidad_buffer = cantidad_buffer;
+    }
+
+    public Buffer getBuffer() {
+        return buffer;
+    }
+
+    public void setBuffer(Buffer buffer) {
+        this.buffer = buffer;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public boolean isE() {
+        return e;
+    }
+
+    public void setE(boolean e) {
+        this.e = e;
+    }
+    
+    
+    
+    
 }

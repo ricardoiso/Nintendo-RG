@@ -10,18 +10,23 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author gabri
+ * @author gabri, this_serra
  */
-public class almacenB extends Thread {
+public class Almacen extends Thread {
 
+    public static volatile int almacen_botones = 1;
+    public static volatile int almacen_pantallas = 1;
+    public static volatile int almacen_joystick = 1;
+    public static volatile int almacen_SD = 1;
+    
     private Buffer b;
     private Buffer b2;
     private int size;
     public int capacidad;
-    private productoresB pb1;
-    private productoresB pb2;
+    private Productor pb1;
+    private Productor pb2;
 
-    public almacenB(Buffer b, Buffer b2, int size, productoresB pb1, productoresB pb2) {
+    public Almacen (Buffer b, Buffer b2, int size, Productor pb1, Productor pb2) {
         this.b = b;
         this.b2 = b2;
         this.size = size;
@@ -37,7 +42,7 @@ public class almacenB extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        while(this.capacidad < 45) {
+        while (this.capacidad < 45) {
             try {
                 if (pb1.e == true && capacidad < 45) {
                     b.extraer();
@@ -54,7 +59,7 @@ public class almacenB extends Thread {
                     e.printStackTrace();
                 }
             } catch (InterruptedException ex) {
-                Logger.getLogger(almacenB.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

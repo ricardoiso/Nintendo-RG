@@ -20,8 +20,8 @@ public class Buffer {
     private Semaphore hayEspacio;
 
     public Buffer(int tam) {
-        b = new int[tam];
-        hayEspacio = new Semaphore(tam, true);
+        this.b = new int[tam];
+        this.hayEspacio = new Semaphore(tam, true);
     }
 
     public void poner(int dato) throws InterruptedException {
@@ -34,13 +34,13 @@ public class Buffer {
         hayDatos.release();
     }
 
-    public int extraer() throws InterruptedException{
+    public int extraer() throws InterruptedException {
         hayDatos.acquire();
         int actual = j;
-        j=(j+1)%b.length; 
+        j = (j + 1) % b.length;
         mutex.release();
         hayEspacio.release();
         return b[actual];
     }
-    
+
 }

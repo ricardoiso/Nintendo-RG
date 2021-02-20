@@ -19,10 +19,10 @@ public class Time extends Thread {
             Calendar rightNow = Calendar.getInstance();
             Date hour = rightNow.getTime();
             System.out.println(hour.getSeconds());
-            try{
+            try {
                 Thread.sleep(1000);
-            }catch(InterruptedException e){
-            e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
 
