@@ -13,7 +13,7 @@ import java.util.concurrent.Semaphore;
  */
 public class Buffer {
 
-    private int[] b;
+    private int[] b; // almacen ???
     private int i = 0, j = 0;
     private Semaphore mutex = new Semaphore(1, true);
     private Semaphore hayDatos = new Semaphore(0, true);

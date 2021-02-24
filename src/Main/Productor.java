@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Main;
 
 import java.util.Calendar;
@@ -17,15 +13,15 @@ import java.util.logging.Logger;
  */
 public class Productor extends Thread {
     
-    private String nombre, tipo;
+    private String nombre;
     private Random r = new Random();
     
-    private int cantidad_buffer;
     private Buffer buffer;
     private int size;
     public boolean e;
     
-   
+    
+    private int tiempoProduccion;
     
     public Productor (String nombre, Buffer buffer, int size, boolean e) {
         this.nombre = nombre;
@@ -57,8 +53,11 @@ public class Productor extends Thread {
         //if ((hour1.getSeconds() % 5) == 0) {        
         
         if (this.e == true) {
+            
             for (int i = 0; i < size; i++) {
+            
                 try {
+                    
                     int aux = r.nextInt(10);
                     buffer.poner(aux);
                     System.out.println("El productor de botones " + this.nombre + "colocó el boton: " + aux + " en el almacen");
@@ -67,6 +66,7 @@ public class Productor extends Thread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -83,14 +83,6 @@ public class Productor extends Thread {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public Random getR() {
         return r;
     }
@@ -98,15 +90,7 @@ public class Productor extends Thread {
     public void setR(Random r) {
         this.r = r;
     }
-
-    public int getCantidad_buffer() {
-        return cantidad_buffer;
-    }
-
-    public void setCantidad_buffer(int cantidad_buffer) {
-        this.cantidad_buffer = cantidad_buffer;
-    }
-
+    
     public Buffer getBuffer() {
         return buffer;
     }

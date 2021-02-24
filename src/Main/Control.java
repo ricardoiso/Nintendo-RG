@@ -21,7 +21,15 @@ public class Control {
     private Jefe jefe;
     private Gerente gerente;
     private Archivo archivo;
+    private Compañia company;
+    
+    private int minuto;
 
+    
+    
+    //No se si son las variables adecuadas
+    ArrayList<Buffer> posTipoProductor = new ArrayList<Buffer>();
+    private int[] tipoProductor = new int[6];
     ArrayList<Productor> Productores = new ArrayList<Productor>();
     ArrayList<Semaphore> mutexProductores = new ArrayList<Semaphore>();
 
@@ -30,14 +38,17 @@ public class Control {
         this.archivo = new Archivo();
         this.jefe = new Jefe();
         this.gerente = new Gerente(this.jefe);
-
+        this.company = new Compañia();
+        
+        
+        this.minuto = this.company.getTiempo() / 60 * 1000;
     }
 
     // Metodo principal que permite correr el programa
     public void iniciar() {
 
-        // this.jefe.start();
-        // this.gerente.start();
+         this.jefe.start();
+         this.gerente.start();
                 
         
         

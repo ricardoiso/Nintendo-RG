@@ -14,11 +14,17 @@ import java.util.Date;
  */
 public class Time extends Thread {
 
+    private int tiempo = 1;
+
     public void setTime() {
         while (true) {
-            Calendar rightNow = Calendar.getInstance();
-            Date hour = rightNow.getTime();
-            System.out.println(hour.getSeconds());
+//            Calendar rightNow = Calendar.getInstance();
+//            Date hour = rightNow.getTime();
+//            System.out.println(hour.getSeconds());
+
+            // De esta forma el tiempo siempre inicia en 1
+            System.out.println(tiempo);
+            tiempo++;
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

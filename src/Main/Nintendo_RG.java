@@ -5,6 +5,8 @@
  */
 package Main;
 
+import Visual.Interfaz;
+
 
 
 /**
@@ -20,6 +22,7 @@ public class Nintendo_RG {
         
         
         Control program = new Control(); 
+        new Interfaz(program).setVisible(true); 
         
         program.iniciar();
     }

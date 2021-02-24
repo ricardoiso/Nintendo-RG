@@ -14,10 +14,10 @@ import java.util.logging.Logger;
  */
 public class Almacen extends Thread {
 
-    public static volatile int almacen_botones = 1;
-    public static volatile int almacen_pantallas = 1;
-    public static volatile int almacen_joystick = 1;
-    public static volatile int almacen_SD = 1;
+    public static volatile int almacen_botones = 0;
+    public static volatile int almacen_pantallas = 0;
+    public static volatile int almacen_joystick = 0;
+    public static volatile int almacen_SD = 0;
     
     private Buffer b;
     private Buffer b2;

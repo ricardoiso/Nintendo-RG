@@ -50,6 +50,8 @@ public class Compañia {
         this.maxEnsambladores = maxEnsambladores;
     }
 
+    
+    // Constructor por defecto en caso de que ocurra algun error al crear la compañia.
     public Compañia() {
         this.tiempo = 60;
         this.diasDespacho = 10; // no se cual es el valor
@@ -61,11 +63,146 @@ public class Compañia {
         this.iniProPant = 1;
         this.iniProJoy = 1;
         this.iniProSD = 1;
-        this.maxProBtn = 0; // no se cuales son los valores maximos de cada productor
-        this.maxProPant = 0;
-        this.maxProJoy = 0;
-        this.maxProSD = 0;
+        this.maxProBtn = 3; 
+        this.maxProPant = 5;
+        this.maxProJoy = 4;
+        this.maxProSD = 4;
         this.iniEnsambladores = 1;
         this.maxEnsambladores = 0;
     }
+
+    
+    
+    // Getters y Setters
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public int getDiasDespacho() {
+        return diasDespacho;
+    }
+
+    public void setDiasDespacho(int diasDespacho) {
+        this.diasDespacho = diasDespacho;
+    }
+
+    public int getMaxBtnAlmacenados() {
+        return maxBtnAlmacenados;
+    }
+
+    public void setMaxBtnAlmacenados(int maxBtnAlmacenados) {
+        this.maxBtnAlmacenados = maxBtnAlmacenados;
+    }
+
+    public int getMaxPantAlmacenadas() {
+        return maxPantAlmacenadas;
+    }
+
+    public void setMaxPantAlmacenadas(int maxPantAlmacenadas) {
+        this.maxPantAlmacenadas = maxPantAlmacenadas;
+    }
+
+    public int getMaxJoyAlmacenado() {
+        return maxJoyAlmacenado;
+    }
+
+    public void setMaxJoyAlmacenado(int maxJoyAlmacenado) {
+        this.maxJoyAlmacenado = maxJoyAlmacenado;
+    }
+
+    public int getMaxSDAlmacenado() {
+        return maxSDAlmacenado;
+    }
+
+    public void setMaxSDAlmacenado(int maxSDAlmacenado) {
+        this.maxSDAlmacenado = maxSDAlmacenado;
+    }
+
+    public int getIniProBtn() {
+        return iniProBtn;
+    }
+
+    public void setIniProBtn(int iniProBtn) {
+        this.iniProBtn = iniProBtn;
+    }
+
+    public int getIniProPant() {
+        return iniProPant;
+    }
+
+    public void setIniProPant(int iniProPant) {
+        this.iniProPant = iniProPant;
+    }
+
+    public int getIniProJoy() {
+        return iniProJoy;
+    }
+
+    public void setIniProJoy(int iniProJoy) {
+        this.iniProJoy = iniProJoy;
+    }
+
+    public int getIniProSD() {
+        return iniProSD;
+    }
+
+    public void setIniProSD(int iniProSD) {
+        this.iniProSD = iniProSD;
+    }
+
+    public int getMaxProBtn() {
+        return maxProBtn;
+    }
+
+    public void setMaxProBtn(int maxProBtn) {
+        this.maxProBtn = maxProBtn;
+    }
+
+    public int getMaxProPant() {
+        return maxProPant;
+    }
+
+    public void setMaxProPant(int maxProPant) {
+        this.maxProPant = maxProPant;
+    }
+
+    public int getMaxProJoy() {
+        return maxProJoy;
+    }
+
+    public void setMaxProJoy(int maxProJoy) {
+        this.maxProJoy = maxProJoy;
+    }
+
+    public int getMaxProSD() {
+        return maxProSD;
+    }
+
+    public void setMaxProSD(int maxProSD) {
+        this.maxProSD = maxProSD;
+    }
+
+    public int getIniEnsambladores() {
+        return iniEnsambladores;
+    }
+
+    public void setIniEnsambladores(int iniEnsambladores) {
+        this.iniEnsambladores = iniEnsambladores;
+    }
+
+    public int getMaxEnsambladores() {
+        return maxEnsambladores;
+    }
+
+    public void setMaxEnsambladores(int maxEnsambladores) {
+        this.maxEnsambladores = maxEnsambladores;
+    }
+    
+    
+    
+    
 }
