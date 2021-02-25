@@ -1,4 +1,3 @@
-
 package Main;
 
 import java.util.Calendar;
@@ -12,22 +11,21 @@ import java.util.logging.Logger;
  * @author gabri, this_serra
  */
 public class Productor extends Thread {
-    
+
     private String nombre;
     private Random r = new Random();
-    
+
     private Buffer buffer;
     private int size;
-    public boolean e;
-    
-    
+    public boolean active;
+
     private int tiempoProduccion;
-    
-    public Productor (String nombre, Buffer buffer, int size, boolean e) {
+
+    public Productor(String nombre, Buffer buffer, int size, boolean e) {
         this.nombre = nombre;
         this.buffer = buffer;
         this.size = size;
-        this.e = e;
+        this.active = e;
     }
 
     /*public void run() {
@@ -46,35 +44,67 @@ public class Productor extends Thread {
             }
 
         }*/
-    
     public void run() {
         Calendar rightNow1 = Calendar.getInstance();
         Date hour1 = rightNow1.getTime();
-        //if ((hour1.getSeconds() % 5) == 0) {        
-        
-        if (this.e == true) {
-            
-            for (int i = 0; i < size; i++) {
-            
-                try {
-                    
-                    int aux = r.nextInt(10);
-                    buffer.poner(aux);
-                    System.out.println("El productor de botones " + this.nombre + "colocó el boton: " + aux + " en el almacen");
+        //if ((hour1.getSeconds() % 5) == 0) {   
+
+//        try {
+//            while (this.active) {
+//                if (this.active) {
+//
+//                    for (int i = 0; i < size; i++) {
+//
+//                        try {
+//
+//                            int aux = r.nextInt(10);
+//                            buffer.poner(aux);
+//                            System.out.println("El productor de botones " + this.nombre + "colocó el boton: " + aux + " en el almacen");
+//                            try {
+//                                Thread.sleep(1000);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//
+//                        } catch (InterruptedException ex) {
+//                            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                    }
+//                } else {
+//                    Thread.sleep(100);
+//                }
+//            }
+//        } catch (InterruptedException e) {
+//        }
+//        try {
+            while (this.active) {
+
+                for (int i = 0; i < size; i++) {
+
                     try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+
+                        int aux = r.nextInt(10);
+                        buffer.poner(aux);
+                        System.out.println("El productor de botones " + this.nombre + "colocó el boton: " + aux + " en el almacen");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-        }
+            } 
+//            else {
+//                Thread.sleep(1000);
+//            }
+//        } catch (InterruptedException e) {
+//        }
+
     }
-    
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -90,7 +120,7 @@ public class Productor extends Thread {
     public void setR(Random r) {
         this.r = r;
     }
-    
+
     public Buffer getBuffer() {
         return buffer;
     }
@@ -107,15 +137,12 @@ public class Productor extends Thread {
         this.size = size;
     }
 
-    public boolean isE() {
-        return e;
+    public boolean getActive() {
+        return active;
     }
 
-    public void setE(boolean e) {
-        this.e = e;
+    public void setActive(boolean e) {
+        this.active = e;
     }
-    
-    
-    
-    
+
 }

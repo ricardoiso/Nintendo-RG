@@ -5,8 +5,11 @@
  */
 package Visual;
 
+import Main.Buffer;
 import Main.Compañia;
 import Main.Control;
+import Main.Productor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -225,6 +228,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void masProductoresBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masProductoresBActionPerformed
         // TODO add your handling code here:
+//        String namePro = app.getProductores().get(app.getProductores().size).getNombre();
         String texto;
         int numero;
         texto = numeroB.getText();
@@ -233,6 +237,8 @@ public class Interfaz extends javax.swing.JFrame {
             numero += 1;
             texto = String.valueOf(numero);
             numeroB.setText(texto);
+            app.getProductores().add(new Productor("B ", (new Buffer(2)), 1000, true));
+//            app.getProductores().get(2).start();
         }
     }//GEN-LAST:event_masProductoresBActionPerformed
 

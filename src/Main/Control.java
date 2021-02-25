@@ -5,9 +5,6 @@
  */
 package Main;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 import javax.swing.JOptionPane;
@@ -60,7 +57,15 @@ public class Control {
         Buffer b2 = new Buffer(2);
 
         Productor primer_productor = new Productor("A ", b1, 1000, true);
-        Productor segundo_productor = new Productor("B ", b2, 1000, true);
+        Productor segundo_productor = new Productor("B ", b2, 1000, false);
+        Productor tercer_productor = new Productor("C ", b2, 1000, false);
+        
+        this.Productores.add(primer_productor);
+        this.Productores.add(segundo_productor);
+        this.Productores.add(tercer_productor);
+        
+        
+        
         Almacen AB = new Almacen(primer_productor.getBuffer(), segundo_productor.getBuffer(), 45, primer_productor, segundo_productor);
 
         primer_productor.start();
@@ -69,5 +74,80 @@ public class Control {
 
         tiempo.setTime();
     }
+
+    public Jefe getJefe() {
+        return jefe;
+    }
+
+    public void setJefe(Jefe jefe) {
+        this.jefe = jefe;
+    }
+
+    public Gerente getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(Gerente gerente) {
+        this.gerente = gerente;
+    }
+
+    public Archivo getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(Archivo archivo) {
+        this.archivo = archivo;
+    }
+
+    public Compañia getCompany() {
+        return company;
+    }
+
+    public void setCompany(Compañia company) {
+        this.company = company;
+    }
+
+    public int getMinuto() {
+        return minuto;
+    }
+
+    public void setMinuto(int minuto) {
+        this.minuto = minuto;
+    }
+
+    public ArrayList<Buffer> getPosTipoProductor() {
+        return posTipoProductor;
+    }
+
+    public void setPosTipoProductor(ArrayList<Buffer> posTipoProductor) {
+        this.posTipoProductor = posTipoProductor;
+    }
+
+    public int[] getTipoProductor() {
+        return tipoProductor;
+    }
+
+    public void setTipoProductor(int[] tipoProductor) {
+        this.tipoProductor = tipoProductor;
+    }
+
+    public ArrayList<Productor> getProductores() {
+        return Productores;
+    }
+
+    public void setProductores(ArrayList<Productor> Productores) {
+        this.Productores = Productores;
+    }
+
+    public ArrayList<Semaphore> getMutexProductores() {
+        return mutexProductores;
+    }
+
+    public void setMutexProductores(ArrayList<Semaphore> mutexProductores) {
+        this.mutexProductores = mutexProductores;
+    }
+    
+    
+    
 
 }

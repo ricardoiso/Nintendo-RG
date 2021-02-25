@@ -44,11 +44,11 @@ public class Almacen extends Thread {
         }
         while (this.capacidad < 45) {
             try {
-                if (pb1.e == true && capacidad < 45) {
+                if (pb1.active == true && capacidad < 45) {
                     b.extraer();
                     capacidad += 1;
                 }
-                if (pb2.e == true && capacidad < 45) {
+                if (pb2.active == true && capacidad < 45) {
                     b2.extraer();
                     capacidad += 1;
                 }
