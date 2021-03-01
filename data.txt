@@ -1,10 +1,10 @@
 Archivo de Creación de datos del Programa
 
 -->Tiempo en segundos que dura un dia en el programa
-tiempo=60;
+tiempo=20;
 
 -->Cantidad de días entre despachos
-diasDespacho=10;
+diasDespacho=20;
 
 -->Capacidad máxima para almacen de botones
 maxBtnAlmacenados=45;
@@ -46,6 +46,6 @@ maxProSD=4;
 iniEnsambladores=1;
 
 --> Cantidad máxima de Ensambladores
-maxEnsambladores=4;
+maxEnsambladores=5;
 
 fin
