@@ -41,10 +41,10 @@ public class Gerente extends Thread{
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                if (Interfaz.jefeEstado.getText() == "El jefe está bajando el contador de días"){
-                    if (jefe.getDiasRestantesDespliegue() == 0) {
+                if (jefe.getDiasRestantesDespliegue() == 0){
                     Interfaz.despliegue.setText("El despliegue de consolas ha comenzado");
-                }    
+                    jefe.setDiasRestantesDespliegue(20);
+                                        
                 } else {
                     Interfaz.gerenteDurmiendo.setText("El gerente está dormido");
                     try {
