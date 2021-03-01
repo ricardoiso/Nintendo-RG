@@ -33,7 +33,7 @@ public class Control {
         this.company = this.archivo.crearCompany(); // Información del programa con datos iniciales
 
         this.jefe = new Jefe(company.getDiasDespacho(), company.getTiempo()*1000);
-        this.gerente = new Gerente(this.jefe, company.getTiempo()*1000);
+        this.gerente = new Gerente(this.jefe, company.getTiempo()*1000, company.getDiasDespacho());
         
         this.tiempo = new Time();
     }
