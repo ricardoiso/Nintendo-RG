@@ -21,8 +21,8 @@ public class Jefe extends Thread {
         this.diasRestantesDespliegue = diasRestantesDespliegue;
     }*/
 
-    public Jefe(int time) {
-        this.diasRestantesDespliegue = 25;
+    public Jefe(int despacho, int time) {
+        this.diasRestantesDespliegue = despacho;
         this.time = time;
     }
 
