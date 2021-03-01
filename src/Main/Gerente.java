@@ -64,7 +64,7 @@ public class Gerente extends Thread{
                 }
                 if (jefe.getDiasRestantesDespliegue() == 0) {
                     Interfaz.despliegue.setText("El despliegue de consolas ha comenzado");
-                    jefe.setDiasRestantesDespliegue(25);
+                    jefe.setDiasRestantesDespliegue(this.despliegue);
                 } else {
                     Interfaz.gerenteDurmiendo.setText("El gerente está dormido");
                     try {
