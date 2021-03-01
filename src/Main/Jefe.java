@@ -44,11 +44,14 @@ public class Jefe extends Thread {
                     
 
                     
-                    Interfaz.diasRestantes.setText(Integer.toString(this.getDiasRestantesDespliegue()));
+                    
                     System.out.println("El jefe bajó el contador de días");
                     Interfaz.jefeEstado.setText("El jefe está bajando el contador de días");
-                    this.setDiasRestantesDespliegue(this.getDiasRestantesDespliegue() - 1);
+                    
                     Thread.sleep(time/4);
+                        
+                    this.setDiasRestantesDespliegue(this.getDiasRestantesDespliegue() - 1);
+                    Interfaz.diasRestantes.setText(Integer.toString(this.getDiasRestantesDespliegue()));
                     
 
 
