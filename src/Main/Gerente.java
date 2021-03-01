@@ -19,10 +19,12 @@ public class Gerente extends Thread{
     private Jefe jefe;
     private boolean loop = false;
     public int time;
+    public int despliegue;
     
-    public Gerente (Jefe jefe, int time){
+    public Gerente (Jefe jefe, int time, int despliegue){
         this.jefe = jefe;
         this.time= time;
+        this.despliegue = despliegue;
     }
     
     public void run() {
