@@ -97,7 +97,7 @@ public class Control {
         Almacen AB = new Almacen(company.getMaxBtnAlmacenados(), ProductoresB,this.company.getTiempo()*500);
         Almacen AJ = new Almacen(company.getMaxJoyAlmacenado(), ProductoresJ,this.company.getTiempo()*2000);
         Almacen AT = new Almacen(company.getMaxSDAlmacenado(), ProductoresT,this.company.getTiempo()*3000);
-        AlmacenP AP = new AlmacenP(company.getMaxPantAlmacenadas(), ProductoresP, 5000);
+        AlmacenP AP = new AlmacenP(company.getMaxPantAlmacenadas(), ProductoresP, this.company.getTiempo()*500);
         Buffer BE = new Buffer(2);
 
         
