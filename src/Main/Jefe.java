@@ -22,7 +22,7 @@ public class Jefe extends Thread {
     }*/
 
     public Jefe(int time) {
-        this.diasRestantesDespliegue = 10;
+        this.diasRestantesDespliegue = 25;
         this.time = time;
     }
 
@@ -48,7 +48,7 @@ public class Jefe extends Thread {
                     System.out.println("El jefe bajó el contador de días");
                     Interfaz.jefeEstado.setText("El jefe está bajando el contador de días");
                     
-                    Thread.sleep(time/4);
+                    Thread.sleep(time/2);
                         
                     this.setDiasRestantesDespliegue(this.getDiasRestantesDespliegue() - 1);
                     Interfaz.diasRestantes.setText(Integer.toString(this.getDiasRestantesDespliegue()));
