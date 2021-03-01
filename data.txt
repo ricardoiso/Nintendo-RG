@@ -4,7 +4,7 @@ Archivo de Creación de datos del Programa
 tiempo=20;
 
 -->Cantidad de días entre despachos
-diasDespacho=20;
+diasDespacho=25;
 
 -->Capacidad máxima para almacen de botones
 maxBtnAlmacenados=45;
