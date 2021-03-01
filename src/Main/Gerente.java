@@ -28,36 +28,56 @@ public class Gerente extends Thread{
     public void run() {
         try {
             try {
-                        Thread.sleep(1000);
+                Thread.sleep(1000);
 //                        System.out.println("Soy el gerente");
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-            while(true){
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            while (true) {
                 try {
 //                    System.out.println("HolaaaaaaAAAAAA");
+                    Interfaz.gerenteDurmiendo.setText("El gerente está despierto");
+                    Thread.sleep(time / 12);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (Interfaz.jefeEstado.getText() == "El jefe está bajando el contador de días") {
+                    try {
                         Interfaz.gerenteDurmiendo.setText("El gerente está despierto");
-                        Thread.sleep(time/12);
+                        Thread.sleep(time / 12);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                if (jefe.getDiasRestantesDespliegue() == 0){
-                    Interfaz.despliegue.setText("El despliegue de consolas ha comenzado");
-                    jefe.setDiasRestantesDespliegue(20);
-                                        
-                } else {
-                    Interfaz.gerenteDurmiendo.setText("El gerente está dormido");
                     try {
-                        Thread.sleep(time/12);
+                        Interfaz.gerenteDurmiendo.setText("El gerente está dormido");
+                        Thread.sleep(time / 12);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        Thread.sleep(time / 12);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                    
+                if (jefe.getDiasRestantesDespliegue() == 0) {
+                    Interfaz.despliegue.setText("El despliegue de consolas ha comenzado");
+                    jefe.setDiasRestantesDespliegue(25);
+                } else {
+                    Interfaz.gerenteDurmiendo.setText("El gerente está dormido");
+                    try {
+                        Thread.sleep(time / 12);
+                        Interfaz.despliegue.setText("Aún no se inicializa el despliegue");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
             }
-            
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "InterruptedException gerente", 
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "InterruptedException gerente",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
