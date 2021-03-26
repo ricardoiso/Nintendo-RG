@@ -2,6 +2,8 @@
 
 _First project of Operating Systems programming in **Java**, in which Semaphores and Threads are used to simulate the creation of Nintendo Consoles._
 
+![Nintendo-RG execution image](https://github.com/ricardoiso/Nintendo-RG/blob/master/nintendo-rg.png?raw=true)
+
 ### Pre-requirements 📋
 
 _Things you need to install the software and how to install it_
